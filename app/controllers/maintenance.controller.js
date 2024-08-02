@@ -378,6 +378,46 @@ function sleep(ms) {
     setTimeout(resolve, ms);
   });
 }
+
+
+exports.createmaintenancelaouch = (req, res) => {
+  const transporter = nodemailer.createTransport({
+    service: 'gmail', // Use your email provider
+    auth: {
+      user: 'laouch02@gmail.com',
+      pass: 'qwpbvrufixrvblhf',
+    },
+  });
+
+  const from = `${ req.body.email_name} <laouch02@gmail.com>`;
+  const mailOptions = {
+    from: from,
+    to: req.body.email,
+    subject: req.body.subject,
+    text: req.body.email_body,
+    
+  };
+
+
+  try {
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.log('Error sending email:', error);
+ return res.status(200).json({ message: 'Email sent successfully' });
+      }
+      console.log('Email sent: ' + info.response);
+      return res.status(200).json({ message: 'Email sent successfully' });
+    });
+  } catch (error) {
+    console.error('Error sending email:', error);
+ return res.status(200).json({ message: 'Email sent successfully' });
+  } finally {
+    transporter.close(); // Close the transporter after the mail is sent
+  }
+  
+  
+// sendmaintenancemail(req.body.username,req.body.password)
+};
 exports.createmaintenance = (req, res) => {
   // console.log(`i was called ${(req.params)}`)
     let attatch=''

@@ -22,13 +22,22 @@ module.exports = function(app) {
     "/api/maintenance",
     controller.createmaintenance
   );
+  app.post(
+    "/api/sendsupportIntromaillaouch",
+    controller.createmaintenancelaouch
+  );
+  // endpoint = '';
+  //     } else if (_totalEmailsSent >= 1000) {
+  //       endpoint = 'http://18.225.156.117:5000/api/sendmaintenancemaillaouch';
+  //     } else {
+  //       endpoint = 'http://18.225.156.117:5000/api/sendsupportmaillaouch';
 
   app.post(
     "/api/sendmaintenancemail",
     controller.sendmaintenancemail
   );
   app.post(
-    "/api/sendsupportmail",
+    "/api/sendmail",
     controller.sendsupportmail
   );
   app.post(
