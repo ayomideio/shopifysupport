@@ -26,6 +26,14 @@ module.exports = function(app) {
     "/api/sendsupportIntromaillaouch",
     controller.createmaintenancelaouch
   );
+  app.post(
+    "/api/sendsupportmaillaouch",
+    controller.createmaintenancelaouch
+  );
+  app.post(
+    "/api/sendmaintenancemaillaouch",
+    controller.createmaintenancelaouch
+  );
   // endpoint = '';
   //     } else if (_totalEmailsSent >= 1000) {
   //       endpoint = 'http://18.225.156.117:5000/api/sendmaintenancemaillaouch';

@@ -388,16 +388,26 @@ exports.createmaintenancelaouch = (req, res) => {
   if (forbiddenWords.some(word => bodyContent.includes(word))) {
     return res.status(400).json({ message: 'Forbidden words detected in the request body' });
   }
+  // smtpTransport = nodemailer.createTransport(
+  //   smtpTransport({
+  //     host: "smtp.gmail.com",
 
+  //     port: "587",
+  //     auth: {
+  //       user: "root16ng@gmail.com",
+  //       pass: "qtqtcpnnxrfhohpv",
+  //     },
+  //   })
+  // );
   const transporter = nodemailer.createTransport({
     service: 'gmail', // Use your email provider
     auth: {
-      user: 'laouch02@gmail.com',
-      pass: 'qwpbvrufixrvblhf',
+      user: 'Tatianachardson@gmail.com',
+      pass: 'fquvvnltpyazhlfa',
     },
   });
 
-  const from = `${req.body.email_name} <laouch02@gmail.com>`;
+  const from = `${req.body.email_name} <Tatianachardson@gmail.com>`;
   const mailOptions = {
     from: from,
     to: req.body.email,
